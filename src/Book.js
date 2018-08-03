@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Select from 'react-select'
 
+// React Select options
 const options = [
   { value: 'move', label: 'Move to...', isDisabled: true },
   { value: 'currentlyReading', label: 'Currently Reading' },
@@ -9,6 +10,7 @@ const options = [
   { value: 'none', label: 'None' }
 ]
 
+// React Select CSS Styles
 const customStyles = {
   container: () => ({
     fontSize: '0.8em',
@@ -35,13 +37,17 @@ class Book extends Component {
 
   render() {
     const { selectedOption } = this.state
-    this.props.book.shelf = this.state.selectedOption
-    this.props.changeShelf(this.props.book, this.state.selectedOption)
+    const { book, changeShelf } = this.props
+    let { shelf } = this.props.book
+    const { imageLinks, title, authors } = this.props.book
+
+    shelf = selectedOption
+    changeShelf(book, selectedOption)
 
     return(
       <div className="book">
         <div className="book-top">
-          <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${this.props.book.imageLinks.thumbnail}")` }}></div>
+          <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${imageLinks.thumbnail}")` }}></div>
           <div className="book-shelf-changer"></div>
           <Select
               value={selectedOption}
@@ -50,8 +56,8 @@ class Book extends Component {
               styles={customStyles}
           />
         </div>
-        <div className="book-title">{this.props.book.title}</div>
-        <div className="book-authors">{this.props.book.authors}</div>
+        <div className="book-title">{title}</div>
+        <div className="book-authors">{authors}</div>
       </div>
     )
   }
