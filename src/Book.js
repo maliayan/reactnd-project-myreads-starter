@@ -10,6 +10,21 @@ const options = [
   { value: 'none', label: 'None' }
 ]
 
+const customStyles = {
+  container: () => ({
+    fontSize: '0.8em',
+    zIndex: 100
+  }),
+  control: () => ({
+    position: 'absolute',
+    opacity: 0,
+    width: 50,
+    height: 50,
+    bottom: -10,
+    right: 0,
+  })
+}
+
 class Book extends Component {
   state = {
     selectedOption: this.props.book.shelf
@@ -28,12 +43,13 @@ class Book extends Component {
       <div className="book">
         <div className="book-top">
           <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${this.props.book.imageLinks.thumbnail}")` }}></div>
+          <div className="book-shelf-changer"></div>
           <Select
-            className="book-shelf-changer"
-            classNamePrefix="book-shelf-changer-select"
-            value={selectedOption}
-            onChange={this.handleChange}
-            options={options}
+              value={selectedOption}
+              onChange={this.handleChange}
+              options={options}
+              styles={customStyles}
+              searchable={false}
           />
         </div>
         <div className="book-title">{this.props.book.title}</div>
