@@ -41,6 +41,9 @@ class SearchBooks extends Component {
     //
     // matchedBooks.sort(sortBy('title'))
 
+    const { changeShelf } = this.props
+    const { matchedBooks } = this.state
+
     return(
       <div className="search-books">
         <div className="search-books-bar">
@@ -58,16 +61,16 @@ class SearchBooks extends Component {
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
-            {
-              this.state.matchedBooks.map(matchedBook => (
-                <li key={matchedBook.id}>
-                  <Book
-                    book={matchedBook}
-                    changeShelf={this.props.changeShelf}
-                  />
-                </li>
-              ))
-            }
+          {
+            matchedBooks.map((book) => (
+              <li key={book.id}>
+                <Book
+                  book={book}
+                  changeShelf={changeShelf}
+                />
+              </li>
+            ))
+          }
           </ol>
         </div>
       </div>

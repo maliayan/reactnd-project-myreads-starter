@@ -3,6 +3,7 @@ import ShelfChanger from './ShelfChanger'
 
 class Book extends Component {
   render() {
+    const { book, Shelf } = this.props
     const { imageLinks, title, authors } = this.props.book
 
     let imageThumbnail = imageLinks ? imageLinks.thumbnail : ''
@@ -20,8 +21,8 @@ class Book extends Component {
           </div>
           <div className="book-shelf-changer"></div>
           <ShelfChanger
-            book={this.props.book}
-            changeShelf={this.props.changeShelf}
+            book={book}
+            changeShelf={Shelf}
           />
         </div>
         <div className="book-title">{title}</div>
