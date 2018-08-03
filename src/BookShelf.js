@@ -18,6 +18,7 @@ class BookShelf extends Component {
                     <Book
                       book={book}
                       changeShelf={changeShelf}
+                      shelfName={shelfName}
                     />
                   </li>
                 ))

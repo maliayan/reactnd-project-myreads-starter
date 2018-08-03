@@ -35,17 +35,17 @@ class ShelfChanger extends Component {
     this.setState({ selectedOption: selectedOption.value })
     this.props.book.shelf = selectedOption.value
     this.props.changeShelf(this.props.book, selectedOption.value)
-    this.props.book.shelf = ""
   }
 
   render() {
     return(
       <Select
-        value={this.selectedOption}
+        value={this.state.value}
         onChange={this.handleChange}
         options={options}
         styles={customStyles}
         isSearchable={false}
+        defaultValue={{ value:this.props.book.shelf }}
       />
     )
   }
