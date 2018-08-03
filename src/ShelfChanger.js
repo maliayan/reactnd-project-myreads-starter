@@ -33,20 +33,15 @@ class ShelfChanger extends Component {
 
   handleChange = (selectedOption) => {
     this.setState({ selectedOption: selectedOption.value })
+    this.props.book.shelf = selectedOption
+    this.props.changeShelf(this.props.book, selectedOption.value)
   }
 
+
   render() {
-    const { selectedOption } = this.state
-
-    const { book, changeShelf } = this.props
-    let { shelf } = this.props.book
-
-    shelf = selectedOption
-    changeShelf(book, selectedOption)
-
     return(
       <Select
-        value={selectedOption}
+        value={this.state.selectedOption}
         onChange={this.handleChange}
         options={options}
         styles={customStyles}
