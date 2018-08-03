@@ -11,10 +11,10 @@ class SearchBooks extends Component {
 
   updateQuery = (query) => {
     this.setState({ query })
-    this.matchedBooks(query)
+    this.listMatchedBooks(query)
   }
 
-  matchedBooks = (query) => {
+  listMatchedBooks = (query) => {
     if(query) {
       BooksAPI.search(query).then((matchedBooks) => {
         if(matchedBooks.error) {
@@ -59,7 +59,7 @@ class SearchBooks extends Component {
         <div className="search-books-results">
           <ol className="books-grid">
             {
-              this.state.matchedBooks.map((matchedBook) => (
+              this.state.matchedBooks.map(matchedBook => (
                 <li key={matchedBook.id}>
                   <Book
                     book={matchedBook}
