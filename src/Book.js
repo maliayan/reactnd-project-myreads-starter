@@ -17,10 +17,10 @@ const customStyles = {
   control: () => ({
     position: 'absolute',
     opacity: 0,
-    width: 50,
-    height: 50,
+    width: 40,
+    height: 40,
     bottom: -10,
-    right: 0,
+    right: 0
   })
 }
 
