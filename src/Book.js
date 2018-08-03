@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ShelfSelector from './ShelfSelector'
+import ShelfChanger from './ShelfChanger'
 
 class Book extends Component {
   render() {
@@ -19,7 +19,7 @@ class Book extends Component {
             }}>
           </div>
           <div className="book-shelf-changer"></div>
-          <ShelfSelector
+          <ShelfChanger
             book={this.props.book}
             changeShelf={this.props.changeShelf}
           />

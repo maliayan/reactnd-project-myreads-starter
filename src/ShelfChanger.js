@@ -26,7 +26,7 @@ const customStyles = {
   })
 }
 
-class ShelfSelector extends Component {
+class ShelfChanger extends Component {
   state = {
     selectedOption: this.props.book.shelf
   }
@@ -55,4 +55,4 @@ class ShelfSelector extends Component {
   }
 }
 
-export default ShelfSelector
+export default ShelfChanger
