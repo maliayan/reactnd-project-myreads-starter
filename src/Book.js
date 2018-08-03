@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Select from 'react-select'
-import * as BooksAPI from './BooksAPI'
 
 const options = [
   { value: 'move', label: 'Move to...', isDisabled: true },
