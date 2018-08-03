@@ -49,7 +49,6 @@ class Book extends Component {
               onChange={this.handleChange}
               options={options}
               styles={customStyles}
-              searchable={false}
           />
         </div>
         <div className="book-title">{this.props.book.title}</div>
