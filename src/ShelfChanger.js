@@ -23,6 +23,11 @@ const customStyles = {
     height: 40,
     bottom: -10,
     right: 0
+  }),
+  option: (base, state) => ({
+    ...base,
+    background: state.isSelected ? '#2e7d32' : state.isFocused ? '#60ac5d' : 'none',
+    cursor: 'pointer'
   })
 }
 
