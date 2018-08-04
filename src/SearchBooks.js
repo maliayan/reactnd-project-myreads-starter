@@ -29,18 +29,6 @@ class SearchBooks extends Component {
   }
 
   render() {
-
-    //
-    // let matchedBooksList
-    // if (query) {
-    //   const match = new RegExp(escapeRegExp(query), 'i')
-    //   matchedBooksList = books.filter((book) => match.test(book.title))
-    // } else {
-    //   matchedBooksList = books
-    // }
-    //
-    // matchedBooks.sort(sortBy('title'))
-
     const { changeShelf } = this.props
     const { matchedBooks } = this.state
 
