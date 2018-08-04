@@ -1,4 +1,6 @@
-# About This Project
+# MyReads: A Book Lending React App
+
+## Instructions
 
 This project was created based on the starter template provided by Udacity instructors. The starter template was static and included HTML/CSS.
 
