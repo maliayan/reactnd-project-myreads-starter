@@ -44,6 +44,7 @@ class BooksApp extends React.Component {
     }
   }
 
+  // From maevanapcontact's solution: https://github.com/maevanapcontact/fend-my-reads/blob/master/src/App.js
   sameState = (book) => {
     let sameShelf = this.state.listBooks.filter(listBook =>
       book.id === listBook.id
