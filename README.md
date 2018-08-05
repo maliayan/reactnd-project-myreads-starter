@@ -8,7 +8,9 @@ I converted this static starter template to an interactive Single Page Applicati
 
 ## Instructions
 
-To install and launch the project:
+You can check this project [via this link.](http://maliayan-myreads.surge.sh/)
+
+For local installing and launching the project:
 
 * clone the repository
 * install all project dependencies with `npm install`
