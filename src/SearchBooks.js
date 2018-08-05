@@ -5,32 +5,19 @@ import Book from './Book'
 
 class SearchBooks extends Component {
   state = {
-    query: '',
-    matchedBooks: []
+    query: ''
   }
 
   updateQuery = (query) => {
     this.setState({ query })
-    this.listMatchedBooks(query)
+    this.props.updateSearchBooks(query)
   }
 
-  listMatchedBooks = (query) => {
-    if(query) {
-      BooksAPI.search(query).then((matchedBooks) => {
-        if(matchedBooks.error) {
-          this.setState({ matchedBooks: [] })
-        } else {
-          this.setState({ matchedBooks })
-        }
-      })
-    } else {
-      this.setState({ matchedBooks: [] })
-    }
-  }
+
 
   render() {
-    const { changeShelf } = this.props
-    const { matchedBooks } = this.state
+    const { changeShelf, book } = this.props
+    const { books } = this.props
 
     return(
       <div className="search-books">
@@ -50,14 +37,15 @@ class SearchBooks extends Component {
         <div className="search-books-results">
           <ol className="books-grid">
           {
-            matchedBooks.map((book) => (
-              <li key={book.id}>
-                <Book
-                  book={book}
-                  changeShelf={changeShelf}
-                />
-              </li>
-            ))
+            books.map((book) => (
+                <li key={book.id}>
+                  <Book
+                    book={book}
+                    changeShelf={changeShelf}
+                    shelfName={this.props.shelfName}
+                  />
+                </li>
+              ))
           }
           </ol>
         </div>

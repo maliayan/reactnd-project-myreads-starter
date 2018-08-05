@@ -8,10 +8,6 @@ class Book extends Component {
 
     let imageThumbnail = imageLinks ? imageLinks.thumbnail : ''
 
-    if((this.props.book.shelf !== 'currentlyReading') && (this.props.book.shelf !== 'wantToRead') && (this.props.book.shelf !== 'read')) {
-      this.props.book.shelf = 'none'
-    }
-
     return(
       <div className="book">
         <div className="book-top">

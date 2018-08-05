@@ -43,7 +43,13 @@ class ShelfChanger extends Component {
     this.props.changeShelf(this.props.book, selectedOption.value)
   }
 
+
+
   render() {
+    if(this.props.book.shelf === undefined){
+      this.props.book.shelf = "none"
+    }
+
     return(
       <Select
         value={this.state.value}

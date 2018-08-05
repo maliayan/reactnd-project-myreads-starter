@@ -7,21 +7,48 @@ import './App.css'
 
 class BooksApp extends React.Component {
   state = {
-    books: []
+    listBooks: [],
+    searchBooks: []
   }
 
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
-      this.setState({ books: books })
+      this.setState({ listBooks: books })
     })
   }
 
   componentDidUpdate() {
     if(this.props.books !== this.state) {
       BooksAPI.getAll().then((books) => {
-        this.setState({ books: books })
+        this.setState({ listBooks: books })
       })
     }
+  }
+
+  updateSearchBooks = (query) => {
+    let searchBooksShelf
+    if (query) {
+      BooksAPI.search(query).then(books => {
+        if (books.error) {
+          this.setState({ searchBooks: [] })
+        } else {
+          searchBooksShelf = books.map(book => {
+            book.shelf = this.sameState(book);
+            return book;
+          })
+          this.setState({ searchBooks: searchBooksShelf })
+        }
+      })
+    } else {
+      this.setState({ searchBooks: [] })
+    }
+  }
+
+  sameState = (book) => {
+    let sameShelf = this.state.listBooks.filter(listBook =>
+      book.id === listBook.id
+    )
+    return sameShelf.length ? sameShelf[0].shelf : undefined
   }
 
   changeShelf = (book, shelf) => {
@@ -34,14 +61,15 @@ class BooksApp extends React.Component {
       <div className="app">
         <Route exact path='/' render={() => (
           <ListBooks
-            books={this.state.books}
+            books={this.state.listBooks}
             changeShelf={this.changeShelf}
           />
         )} />
         <Route path='/search' render={() => (
           <SearchBooks
-            books={this.state.books}
+            books={this.state.searchBooks}
             changeShelf={this.changeShelf}
+            updateSearchBooks={this.updateSearchBooks}
           />
         )} />
       </div>
