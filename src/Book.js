@@ -27,7 +27,7 @@ class Book extends Component {
             />
           </div>
         <div className="book-title">{title}</div>
-        <div className="book-authors">{authors}</div>
+        <div className="book-authors">{authors ? authors.join(', ') : ''}</div>
       </div>
     )
   }
