@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Link, Switch } from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
 import ListBooks from './ListBooks'
 import SearchBooks from './SearchBooks'
@@ -58,21 +58,34 @@ class BooksApp extends React.Component {
   }
 
   render() {
+    const NoMatch = ({ location }) => (
+      <div style={{textAlign: 'center', marginTop: 120}}>
+        <h3>Sorry, reader! No match this URL :(</h3>
+        <p>Yes, this is just a basic 404 page.</p>
+        <p>Possible actions:</p>
+        <Link to='/'>Check your book shelves</Link>
+        <br></br>
+        <Link to='/search'>Search books</Link>
+      </div>
+    )
     return (
       <div className="app">
-        <Route exact path='/' render={() => (
-          <ListBooks
-            books={this.state.listBooks}
-            changeShelf={this.changeShelf}
-          />
-        )} />
-        <Route path='/search' render={() => (
-          <SearchBooks
-            books={this.state.searchBooks}
-            changeShelf={this.changeShelf}
-            updateSearchBooks={this.updateSearchBooks}
-          />
-        )} />
+        <Switch>
+          <Route exact path='/' render={() => (
+            <ListBooks
+              books={this.state.listBooks}
+              changeShelf={this.changeShelf}
+            />
+          )} />
+          <Route path='/search' render={() => (
+            <SearchBooks
+              books={this.state.searchBooks}
+              changeShelf={this.changeShelf}
+              updateSearchBooks={this.updateSearchBooks}
+            />
+          )} />
+          <Route component={NoMatch} />
+        </Switch>
       </div>
     )
   }
