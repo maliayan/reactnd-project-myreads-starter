@@ -9,6 +9,7 @@ I converted this static starter template to an interactive Single Page Applicati
 ## Instructions
 
 You can check this project [via this link.](http://maliayan-myreads.surge.sh/)
+This version doesn't include some implemented functionalities like refreshing the page and 404 page.
 
 For local installing and launching the project:
 
