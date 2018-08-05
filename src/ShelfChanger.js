@@ -26,7 +26,7 @@ const customStyles = {
   }),
   option: (base, state) => ({
     ...base,
-    background: state.isSelected ? '#2e7d32' : state.isFocused ? '#60ac5d' : 'none',
+    background: state.isSelected ? '#2e7d32' : state.isFocused ? '#a0cd9e' : 'none',
     color: state.isSelected ? 'white' : state.isFocused ? 'white' : 'black',
     cursor: 'pointer'
   })
@@ -42,8 +42,6 @@ class ShelfChanger extends Component {
     this.props.book.shelf = selectedOption.value
     this.props.changeShelf(this.props.book, selectedOption.value)
   }
-
-
 
   render() {
     if(this.props.book.shelf === undefined){
