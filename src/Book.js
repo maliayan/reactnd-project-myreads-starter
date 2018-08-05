@@ -6,7 +6,7 @@ class Book extends Component {
     const { book, changeShelf, shelfName } = this.props
     const { imageLinks, title, authors } = this.props.book
 
-    let imageThumbnail = imageLinks ? imageLinks.thumbnail : ''
+    let imageThumbnail = imageLinks ? imageLinks.thumbnail : 'http://via.placeholder.com/128x193?text=No%20Cover'
 
     return(
       <div className="book">
